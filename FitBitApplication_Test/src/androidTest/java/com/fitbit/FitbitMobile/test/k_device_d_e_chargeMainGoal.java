@@ -1,0 +1,111 @@
+package com.fitbit.FitbitMobile.test;
+
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.robotium.solo.Solo;
+
+
+@SuppressWarnings("rawtypes")
+public class k_device_d_e_chargeMainGoal extends ActivityInstrumentationTestCase2 {
+    private Solo solo;
+
+    private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.fitbit.onboarding.landing.LandingActivity_";
+
+    private static Class<?> launcherActivityClass;
+    static{
+        try {
+            launcherActivityClass = Class.forName(LAUNCHER_ACTIVITY_FULL_CLASSNAME);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public k_device_d_e_chargeMainGoal() throws ClassNotFoundException {
+        super(launcherActivityClass);
+    }
+
+    public void setUp() throws Exception {
+        super.setUp();
+        solo = new Solo(getInstrumentation());
+        getActivity();
+    }
+
+    @Override
+    public void tearDown() throws Exception {
+        solo.finishOpenedActivities();
+        super.tearDown();
+    }
+
+    public void testRun() {
+        //Wait for activity: 'com.fitbit.onboarding.landing.LandingActivity_'
+        solo.waitForActivity("LandingActivity_", 500);
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on ImageView
+        solo.clickOnView(solo.getView(android.widget.ImageButton.class, 0));
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //tap Devices
+        solo.clickOnText(java.util.regex.Pattern.quote("Devices"));
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on UPDATE AVAILABLE Surge Last synced: 11 mins ago RelativeLayout
+        solo.clickInList(3, 0);
+        //Wait for activity: 'com.fitbit.device.ui.TrackerDetailsActivity_'
+        assertTrue("TrackerDetailsActivity_ is not found!", solo.waitForActivity("TrackerDetailsActivity_"));
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Main Goal Steps RelativeLayout
+        solo.clickOnText(java.util.regex.Pattern.quote("Main Goal"));
+        //Wait for dialog
+        solo.waitForDialogToOpen(5000);
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Calories
+        //solo.clickOnView(solo.getView(android.R.id.text1, 2));
+        solo.clickOnText(java.util.regex.Pattern.quote("Distance"));
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Take screenshot
+        solo.takeScreenshot();
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Main Goal Calories RelativeLayout
+        solo.clickOnText(java.util.regex.Pattern.quote("Main Goal"));
+        //Wait for dialog
+        solo.waitForDialogToOpen(5000);
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Steps
+        solo.clickOnText(java.util.regex.Pattern.quote("Calories"));
+        //Take screenshot
+        solo.takeScreenshot();
+        solo.sleep(500);
+        //Click on Main Goal Steps RelativeLayout
+        solo.clickOnText(java.util.regex.Pattern.quote("Main Goal"));
+        //Wait for dialog
+        solo.waitForDialogToOpen(5000);
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Calories
+        //solo.clickOnView(solo.getView(android.R.id.text1, 2));
+        solo.clickOnText(java.util.regex.Pattern.quote("Floors"));
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Take screenshot
+        solo.takeScreenshot();
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Main Goal Calories RelativeLayout
+        solo.clickOnText(java.util.regex.Pattern.quote("Main Goal"));
+        //Wait for dialog
+        solo.waitForDialogToOpen(5000);
+        //Sleep for x milliseconds
+        solo.sleep(500);
+        //Click on Steps
+        solo.clickOnText(java.util.regex.Pattern.quote("Steps"));
+        //Take screenshot
+        solo.takeScreenshot();
+    }
+}
